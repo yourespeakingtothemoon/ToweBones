@@ -1,0 +1,16 @@
+﻿@model ToweBones.Models.Devlog
+
+
+
+<div class="card mb-3">
+    <h3 class="card-header">@Model.Title</h3>
+    <div class="card-body">
+        <h6 class="card-subtitle text-muted">@Model.Date.ToShortDateString()</h6>
+    </div>
+	<img class="card-img-top" src="@Model.Image" alt="Card image cap"/>
+    <div class="card-body">
+        <p class="card-text">@Model.Content</p>
+    </div>
+</div>
+
+

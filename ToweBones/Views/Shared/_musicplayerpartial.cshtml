@@ -1,0 +1,52 @@
+﻿
+
+
+
+
+
+    <div class="contain">
+        <div class="container">
+            <div class="music-player">
+                <div class="cover">
+                    <img src="~/img/albumcover.png" alt="">
+                </div>
+                <div class="titre">
+                    <h1>Osso Nova</h1>
+                </div>
+                <div class="lecteur">
+                    <audio style="width: 100%;" class="fc-media">
+                        <source src="~/Sounds/BGM/Osso Nova.mp3" type="audio/mp3" />
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var audio = {
+            init: function () {
+                var $that = this;
+                $(function () {
+                    $that.components.media();
+                });
+            },
+            components: {
+                media: function (target) {
+                    var media = $('audio.fc-media', (target !== undefined) ? target : 'body');
+                    if (media.length) {
+                        media.mediaelementplayer({
+                            audioHeight: 40,
+                            features: ['playpause', 'current', 'duration', 'progress', 'volume', 'tracks', 'fullscreen'],
+                            alwaysShowControls: true,
+                            timeAndDurationSeparator: '<span></span>',
+                            iPadUseNativeControls: true,
+                            iPhoneUseNativeControls: true,
+                            AndroidUseNativeControls: true
+                        });
+                    }
+                },
+
+            },
+        };
+        audio.init();
+</script>

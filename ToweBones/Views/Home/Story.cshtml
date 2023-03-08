@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+	@model ToweBones.Models.DaStory;
+	ViewData["Title"] = "The Story So Far...";
+}
+
+<center>
+<h2>The Story So Far...</h2>
+<partial class="storytxt">@Model.StoryIntro</p>
+</center>
+<div>
+	<div class="row contStory">
+		<div class="col centeralign">
+			<img class="storyframe" src="~/img/story/story1.png" alt="he lost it" />
+				<p class="labelimg">"No! No! No!!! My prized monocle!!!!!"</p>
+			</div>
+			<div class="col">
+<p class="storytxt leftalign">@Model.Story1</p>
+			</div>
+		</div>
+		<div class="row contStory">
+			<p class=" storytxt centeralign">@Model.Story2</p>
+			</div>
+			<div class="row contStory">
+				<div class="col">
+				<p class="storytxt rightalign">@Model.Story3</p>
+				</div>
+				<div class="col centeralign">
+	<img class="storyframe" src="~/img/story/story2.png" alt="he will find it" />
+			<p class="labelimg">Tower of Bone, those corporate dorks are going to get theirs...</p>
+			</div>
+</div>
+<center>
+<p class="storytxt">Join Spooky on his epic quest to retrieve his golden monocle, prove your skills in this exciting new game, put your gaming skills to the test and battle your way through an endless department store filled with danger, show off your skills as a gamer and take on the challenge - play now!</p>
+</center>
+	<a asp-action="Game" class="btn btn-primary btn-alltheway">Play Now! </a>
+</div>

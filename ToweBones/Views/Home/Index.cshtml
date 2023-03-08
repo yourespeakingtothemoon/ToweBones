@@ -1,0 +1,61 @@
+﻿@using Microsoft.AspNetCore.Identity
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@model ToweBones.Data.SkeleDAL
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@*we can probably just hide this in a pertial view or someting*@
+@*<script src="~/js/p5.js"></script>
+<script src="~/js/sketch.js"></script>
+<script src="~/js/GameManager.js"></script>
+<script src="~/js/Screen/Screen.js"></script>
+<script src="~/js/Screen/ScreenManager.js"></script>
+<script src="~/js/Screen/ScreenTiles.js"></script>
+<script src="~/js/Tile.js"></script>
+<script src="~/js/Player.js"></script>
+<script src="~/js/Utilities.js"></script>*@
+
+@*this is the canvas that the game will be drawn on*@
+
+@{
+	
+}
+
+<center>
+	
+<a asp-action="Game" class="btn btn-primary btn-alltheway">Play Now! </a>
+</center>
+<hr/>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			@if (SignInManager.IsSignedIn(User))
+			{
+				var curUser = UserManager.FindByEmailAsync(User.Identity.Name).Result;
+				<partial name="_profilePartial" for="@curUser"/>
+			}
+			else
+			{
+				<partial name="_NOprofilePartial" />
+			}
+			
+			
+		</div>
+		<div class="col">
+			@foreach(Devlog d in Model.GetAllDevlogsAsync().Result)
+			{
+				<partial name="_devlogPartial" for="@d"/>
+			}
+	</div>
+		<div class="col">
+			<partial name="_leaderboard" for="@Model"/>
+		</div>
+	</div>
+@*	<!-- SCM Music Player https://www.scmplayer.net -->
+	<script type="text/javascript" src="https://www.scmplayer.net/script.js"
+			data-config="{'skin':'skins/scmOrange/skin.css','volume':50,'autoplay':true,'shuffle':false,'repeat':1,'placement':'bottom','showplaylist':false,'playlist':[{'title':'Osso Nova From Music to Incur Debt To (TOB OST)','url':'https://mk1k.net/Hosting/Osso-Nova.mp3'}]}"></script>
+	<!-- SCM Music Player script end -->
+*@

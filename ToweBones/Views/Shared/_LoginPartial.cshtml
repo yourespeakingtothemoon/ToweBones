@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ToweBones.Models
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+    @{
+        
+    }
+
+@if (SignInManager.IsSignedIn(User))
+{
+		
+
+            <div class="dropdown">
+                <!--If statement to see if currentUser is not null, if null, point to login form with a link to sign up-->
+                <!--MongoDB needs to be properly configured before this can work unfortuantely-->
+                <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="~/img/@UserManager.FindByEmailAsync(User.Identity.Name).Result.getPfpFile()" class="dropdown-pfp" />
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="~/Home/Index">Home</a>
+
+                 
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-action="Story">The Story</a>
+                <a id="manage" class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Manage Account</a>
+                    @*<a class="dropdown-item" href="#">About</a>*@
+                    <!--Dont know yet if I should do a in menu form for the two settings or make this a pop up dialog at the bottom theme, and location (for the weather)-->
+
+                    <div class="dropdown-divider"></div>
+                <a class="dropdown-item btn-danger" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                        </svg>LOG OUT
+                    </a>
+                </div>
+            </div>
+    
+}
+else
+{
+ <div class="btn-group">
+            <button class="btn btn-link nav-link btn-outline-primary">
+        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                      </button>
+    
+      <button class="btn btn-link nav-link btn-outline-secondary">
+        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+               </button>
+   </div>
+}
+

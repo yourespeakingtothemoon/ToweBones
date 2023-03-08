@@ -1,0 +1,124 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.dropdown-pfp {
+    border-radius: 100%;
+    border: 3px solid white;
+    width: 45px;
+    height: 45px;
+}
+
+    .dropdown-pfp:hover {
+        border: 3px solid #258cfb;
+    }
+
+.pfp-round {
+    border-radius: 100%;
+    border: 3px solid white;
+    width: 45%;
+    height: 45%;
+    align-self: center;
+    justify-self: center;
+}
+
+    .pfp-round:hover {
+        
+    }
+
+.icn-pfp{
+    border-radius: 100%;
+    border: 3px solid white;
+    width: 10%;
+    height: 10%;
+    align-self: center;
+    justify-self: center;
+}
+
+.icn-pfp:hover {
+    border: 3px solid #258cfb;
+}
+
+    .storyframe
+    {
+        height: 30vh;
+       
+    }
+
+.rightalign {
+    text-align: right;
+}
+
+.centeralign {
+    text-align: center;
+    align-content: center;
+}
+
+.contStory {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.storytxt{
+    font-size: 1.5vh;
+    margin:1em;
+}
+
+@media screen and (min-width: 1300px) {
+    /* adjust the font sizes for screens wider than 768px */
+
+
+    .storytxt {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    /* adjust the text alignment for screens wider than 768px */
+    .rightalign {
+        text-align: center;
+    }
+
+    .centeralign {
+        text-align: center;
+    }
+    .leftalign
+    {
+        text-align:center;
+    }
+}
+
+    .labelimg {
+        font-size: smaller;
+        color: darkorchid;
+        text-align: center;
+    }
+
+    .btn-alltheway{
+        width:100%
+    }
+
+    hr{
+        color: indigo;
+    }
+
+ 

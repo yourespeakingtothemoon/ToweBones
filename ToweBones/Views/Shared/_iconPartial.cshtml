@@ -1,0 +1,11 @@
+﻿@model ToweBones.Models.User
+<div class="dropdown">
+              
+                <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img src="img/@Model.getPfpFile()" class="icn-pfp" />
+                </a>
+                <div class="dropdown-menu">
+		<partial name="_ProfilePartial" for="@Model"/>
+                </div>
+            </div>
+            

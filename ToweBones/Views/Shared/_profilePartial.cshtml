@@ -1,0 +1,12 @@
+﻿@model ToweBones.Models.User
+
+
+<div class="card border-primary mb-3">
+  <div class="card-header text-center">@Model.Email</div>
+  <div class="card-body justify-content-center">
+    <img src="~/img/@Model.getPfpFile()" class="pfp-round" />
+    <p class="card-text"><span class="text-success"><strong>High Debt: </strong>$@Model.HiDebt</span></p>
+    <p class="card-text"><span class="text-success"><strong>Highest Level: </strong>Floor @Model.HiLevel</span></p>
+    <p class="card-text"><span class="text-secondary"><strong>Total Score: </strong>@Model.getScore()</span></p>
+    </div>
+  </div>

@@ -1,0 +1,101 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model ToweBones.Data.SkeleDAL
+
+@{
+	ViewData["Title"] = "Leaderboard";
+
+	var lb = Model.GetLeaderBoard().ToArray<User>();
+	var lbDebt = Model.GetLeaderBoardByDebt().ToArray<User>();
+	var lbLevel = Model.GetLeaderBoardByLevel().ToArray<User>();
+
+}
+
+<div class="card border-secondary mb-3">
+	<div class="card-header text-center">Leaderboard</div>
+  <div class="card-body justify-content-center">
+	  <ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" data-bs-toggle="tab" href="#totalscore" aria-selected="true" role="tab">By Score</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" data-bs-toggle="tab" href="#debt" aria-selected="false" tabindex="-1" role="tab">By Debt</a>
+  </li>
+  <li class="nav-item" role="presentation">
+				<a class="nav-link" data-bs-toggle="tab" href="#level" aria-selected="false" tabindex="-1" role="tab">By Level</a>
+  </li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane fade show active" id="totalscore" role="tabpanel">
+				<table class="table-striped">
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>Username</th>
+					<th>Score</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (int i = 0; i < Model.GetAllUsers().Count(); i++)
+				{
+					<tr>
+						<td>@(i + 1)</td>
+								<td><partial name="_iconPartial" for="@lb[i]" />@lb[i].UserName</td>
+
+								<td>@lb[i].getScore()</td>
+					</tr>
+				}
+			</tbody>
+    </table>
+	</div>
+			<div class="tab-pane fade" id="debt" role="tabpanel">
+				<table class="table-striped">
+					<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Username</th>
+							<th>Debt</th>
+						</tr>
+					</thead>
+					<tbody>
+						@for (int i = 0; i < Model.GetAllUsers().Count(); i++)
+						{
+							<tr>
+								<td>@(i + 1)</td>
+								<td><partial name="_iconPartial" for="@lbDebt[i]" />@lbDebt[i].UserName</td>
+
+								<td>$@lbDebt[i].HiDebt</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+</div>
+
+			<div class="tab-pane fade" id="level" role="tabpanel">
+				<table class="table-striped">
+					<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Username</th>
+							<th>Level</th>
+						</tr>
+					</thead>
+					<tbody>
+						@for (int i = 0; i < Model.GetAllUsers().Count(); i++)
+						{
+							<tr>
+								<td>@(i + 1)</td>
+								<td><partial name="_iconPartial" for="@lbLevel[i]" />@lbLevel[i].UserName</td>
+
+								<td>@lbLevel[i].HiLevel</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				</div>
+    </div>
+  </div>
