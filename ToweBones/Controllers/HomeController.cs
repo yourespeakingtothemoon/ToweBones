@@ -37,6 +37,18 @@ namespace ToweBones.Controllers
             return View(_dal);
         }
 
+		public IActionResult Edit()
+		{
+			return View();
+		}
+
+		public IActionResult profileEdit(int pfp)
+		{
+			var user = _dal.GetUserByUsername(User.Identity.Name);
+			user.pfpID = pfp;
+			_dal.UpdateDB();
+			return RedirectToAction("Index");
+		}
 
 
         public IActionResult Story()

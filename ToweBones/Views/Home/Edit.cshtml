@@ -1,0 +1,38 @@
+﻿
+
+
+
+<h1>Change Profile Picture</h1>
+
+<div class="form-floating mb-3">
+    <form asp-action="profileEdit" method="post" enctype="multipart/form-data">
+    <fieldset class="form-group d-inline-flex">
+        @* <legend class="mt-4">Profile Pictures</legend>*@
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="pfp" id="optionsRadios1" value="1" checked="">
+            <img src="~/img/pfp1.png" style="max-width:75%;" />
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="pfp" id="optionsRadios2" value="2">
+            <img src="~/img/pfp2.png" style="max-width:75%;" />
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="pfp" id="optionsRadios3" value="3">
+            <img src="~/img/pfp3.png" style="max-width:75%;" />
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="pfp" id="optionsRadios3" value="4">
+            <img src="~/img/pfp4.png" style="max-width:75%;" />
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="pfp" id="optionsRadios3" value="5">
+            <img src="~/img/pfp5.png" style="max-width:75%;" />
+        </div>
+
+    </fieldset>
+
+
+		<button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>

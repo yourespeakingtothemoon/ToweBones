@@ -47,4 +47,15 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Home\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Game\Build\Build\Build.data.br" />
+    <None Include="wwwroot\Game\Build\Build\Build.framework.js.br" />
+    <None Include="wwwroot\Game\Build\Build\Build.loader.js" />
+    <None Include="wwwroot\Game\Build\Build\Build.wasm.br" />
+  </ItemGroup>
+
 </Project>

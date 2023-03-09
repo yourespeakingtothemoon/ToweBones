@@ -57,5 +57,11 @@ namespace ToweBones.Data
 		{
 			return _context.Users.Where(u => u.Email == username).FirstOrDefault();
 		}
+
+		public void UpdateDB()
+		{
+			_context.SaveChanges();
+		}
 	}
+
 }

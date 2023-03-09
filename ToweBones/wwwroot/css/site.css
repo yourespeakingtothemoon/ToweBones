@@ -35,8 +35,8 @@ body {
 .pfp-round {
     border-radius: 100%;
     border: 3px solid white;
-    width: 45%;
-    height: 45%;
+    width: 20vh;
+    height: 20vh;
     align-self: center;
     justify-self: center;
 }
@@ -69,12 +69,14 @@ body {
 }
 
 .centeralign {
-    text-align: center;
-    align-content: center;
+   text-align:center;
+   display:flex;
+   flex-wrap:wrap;
 }
 
 .contStory {
     display: flex;
+    overflow-wrap: break-word;
     flex-wrap: wrap;
 }
 
